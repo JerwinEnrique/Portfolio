@@ -40,6 +40,39 @@ window.PORTFOLIO_DATA = {
 
   timeline: [
     {
+      id: "exp-06",
+      type: "leadership",
+      dateStart: "2023",
+      dateEnd: "2026",
+      role: "Director of Sports",
+      org: "Institute of Computer Engineers of the Philippines (ICpEP) — Student Chapter",
+      location: "Jose Rizal University",
+      summary: "Elected Director of Sports for two consecutive terms (2023–2026), organizing and leading sports and team-building programs for the ICpEP student chapter — building teamwork, leadership, communication, and adaptability alongside my technical coursework.",
+      achievements: [
+        "Re-elected for a 2nd consecutive term, reflecting consistent leadership and reliability within the organization",
+        "Planned and led sports events and team-building activities for chapter members",
+        "Coordinated with fellow officers and members across two full terms, strengthening teamwork and communication skills",
+        "Adapted event plans and logistics on the fly to fit changing schedules, venues, and member availability"
+      ],
+      tags: ["Leadership", "Teamwork", "Communication", "Adaptability", "Event Organizing", "Student Organization"]
+    },
+    {
+      id: "exp-05",
+      type: "work",
+      dateStart: "2025",
+      dateEnd: "2025",
+      role: "Customer Service Representative (CSR)",
+      org: "Teleperformance",
+      location: "On-site",
+      summary: "Worked for about a month as a Customer Service Representative at Teleperformance, handling customer interactions and support requests in a fast-paced call center environment.",
+      achievements: [
+        "Handled customer interactions and support requests professionally under time pressure",
+        "Practiced clear verbal communication and active listening in a live customer-facing role",
+        "Gained first-hand experience with corporate workflows, performance metrics, and customer service standards"
+      ],
+      tags: ["Customer Service", "Communication", "Problem Solving", "Professionalism"]
+    },
+    {
       id: "exp-04",
       type: "leadership",
       dateStart: "2024",
@@ -242,6 +275,8 @@ window.PORTFOLIO_DATA = {
         { name: "Java", level: 3, domain: "programming" },
         { name: "C Programming", level: 3, domain: "programming" },
         { name: "Python Programming", level: 3, domain: "programming" },
+        { name: "JavaScript", level: 3, domain: "programming" },
+        { name: "PHP", level: 2, domain: "programming" },
         { name: "HTML", level: 3, domain: "programming" },
         { name: "CSS", level: 3, domain: "programming" },
         { name: "SQL", level: 3, domain: "programming" },
@@ -254,8 +289,8 @@ window.PORTFOLIO_DATA = {
       label: "Web Development (Frontend & Backend)",
       accent: "cyan",
       skills: [
-        { name: "Frontend Development (HTML, CSS, Responsive UI)", level: 3, domain: "webdev" },
-        { name: "Backend & Server-side Logic", level: 2, domain: "webdev" },
+        { name: "Frontend Development (HTML, CSS, JavaScript, Responsive UI)", level: 3, domain: "webdev" },
+        { name: "Backend & Server-side Logic (PHP)", level: 2, domain: "webdev" },
         { name: "Database-driven Web Applications", level: 3, domain: "webdev" },
         { name: "Version Control (Git / GitHub)", level: 3, domain: "webdev" }
       ]

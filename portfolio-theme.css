@@ -584,3 +584,58 @@ footer.site-footer {
     height: 50vh;
   }
 }
+
+/* ------------------------------------------------------------------
+   Shared button styles (.btn-primary / .btn-secondary / .btn-icon)
+   These live here — not just inline on index.html — so every page
+   that uses them (resume.html, projects.html, etc.) gets correctly
+   sized, styled buttons. Icons ALWAYS get an explicit width/height
+   here so a raw SVG (or an icon-library glyph that never loaded)
+   can never blow up to fill its container the way an unconstrained
+   SVG with only a viewBox can.
+   ------------------------------------------------------------------ */
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #04140a;
+  border: 2px solid var(--green);
+}
+
+.btn-primary:hover {
+  background: var(--green-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57,255,140,0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--line-strong);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: rgba(57,255,140,0.1);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.btn-icon,
+.btn-primary svg,
+.btn-secondary svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}

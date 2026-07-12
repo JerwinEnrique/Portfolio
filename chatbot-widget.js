@@ -166,11 +166,24 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       id: 'leadership',
-      patterns: ['leadership', 'awslc', 'aws learning community', 'cto', 'student leader', 'organization', 'org', 'club'],
+      patterns: ['leadership', 'awslc', 'aws learning community', 'cto', 'student leader', 'organization', 'org', 'club', 'icpep', 'director of sports', 'sports', 'teamwork', 'communication', 'adaptability', 'soft skills'],
       handler: (data) => {
-        const item = (data.timeline || []).find(t => t.type === 'leadership');
+        const items = (data.timeline || []).filter(t => t.type === 'leadership');
+        if (!items.length) return null;
+        let response = "Jerwin's leadership roles:<br><br>";
+        items.forEach(item => {
+          response += `<strong>${item.role}</strong> — ${item.org}<br>${item.dateStart} – ${item.dateEnd}<br>${item.summary}<br><br>`;
+        });
+        return response;
+      }
+    },
+    {
+      id: 'teleperformance',
+      patterns: ['teleperformance', 'csr', 'customer service representative', 'call center'],
+      handler: (data) => {
+        const item = (data.timeline || []).find(t => t.org === 'Teleperformance');
         if (!item) return null;
-        return `<strong>${item.role}</strong> — ${item.org}<br>${item.dateStart} – ${item.dateEnd}<br>${item.summary}`;
+        return `<strong>${item.role}</strong> — ${item.org}<br>${item.dateStart}<br>${item.summary}`;
       }
     },
     {
@@ -229,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       id: 'skills',
-      patterns: ['skill', 'technology', 'language', 'tool', 'programming', 'web dev', 'web development', 'frontend', 'front-end', 'backend', 'back-end', 'sql', 'database', 'ai', 'artificial intelligence', 'machine learning', 'robot', 'robotics', 'pcb', 'circuit', 'raspberry', 'arduino', 'verilog', 'assembly', 'java', 'python', 'html', 'css', 'system making', 'system development', 'stack', 'cybersecurity', 'cyber security', 'cyber', 'security', 'network security', 'hardening', 'threat', 'mobile', 'mobile app', 'mobile development', 'flutter', 'dart', 'android studio', 'android development', 'ios'],
+      patterns: ['skill', 'technology', 'language', 'tool', 'programming', 'web dev', 'web development', 'frontend', 'front-end', 'backend', 'back-end', 'sql', 'database', 'ai', 'artificial intelligence', 'machine learning', 'robot', 'robotics', 'pcb', 'circuit', 'raspberry', 'arduino', 'verilog', 'assembly', 'java', 'javascript', 'js', 'php', 'python', 'html', 'css', 'system making', 'system development', 'stack', 'cybersecurity', 'cyber security', 'cyber', 'security', 'network security', 'hardening', 'threat', 'mobile', 'mobile app', 'mobile development', 'flutter', 'dart', 'android studio', 'android development', 'ios'],
       handler: (data, q) => {
         const categories = data.skillCategories || [];
         if (categories.length === 0) return null;
@@ -287,10 +300,9 @@ document.addEventListener('DOMContentLoaded', function () {
           "A few reasons: hands-on IT support experience from his OJT, " +
           `${certCount} certifications spanning IT fundamentals, cloud, and AI/ML, ` +
           `${awardCount} awards/honors including academic excellence rankings and robotics competition placements, ` +
-          "a leadership track record as CTO of the AWS Learning Community JRU chapter, and a broad skill set across " +
-          "web development, databases, AI, cybersecurity, and robotics/embedded systems. He's open to roles like AI Engineer, " +
-          "Cybersecurity Analyst, Cloud Engineer, Network Engineer, and Web/Software Developer — and he's easy to reach if you want to talk further."
-        );
+          "a leadership track record as CTO of the AWS Learning Community JRU chapter and Director of Sports for ICpEP (re-elected for a 2nd consecutive term, 2023–2026) — showing strong teamwork, communication, and adaptability — plus real customer-facing experience as a CSR at Teleperformance, and a broad skill set across " +
+          "web development, mobile app development (Flutter/Android Studio), databases, AI, cybersecurity, and robotics/embedded systems. He's open to roles like AI Engineer, " +
+          "Cybersecurity Analyst, Cloud Engineer, Network Engineer, and Web/Software/Mobile Developer — and he's easy to reach if you want to talk further.");
       }
     },
     {
