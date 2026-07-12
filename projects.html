@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('portfolio-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {}
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Jerwin Enrique | Computer Engineering Portfolio</title>
+<meta name="description" content="Academic and personal projects by Jerwin Enrique, including his undergraduate thesis.">
+<link rel="canonical" href="https://jerwinenrique.github.io/portfolio/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Jerwin Enrique">
+<meta property="og:description" content="Academic and personal projects by Jerwin Enrique, including his undergraduate thesis.">
+<meta property="og:url" content="https://jerwinenrique.github.io/portfolio/projects.html">
+<meta property="og:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<meta property="og:site_name" content="Jerwin Enrique — Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Jerwin Enrique">
+<meta name="twitter:description" content="Academic and personal projects by Jerwin Enrique, including his undergraduate thesis.">
+<meta name="twitter:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-theme.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/* Projects page specific styles */
+.projects-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.projects-header h1 {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, var(--green), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.projects-header p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.filter-btn.active {
+  background: var(--green);
+  color: #04140a;
+  border-color: var(--green);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.project-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  border-color: var(--green);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(57,255,140,0.15);
+}
+.project-image {
+  height: 180px;
+  background: var(--bg-terminal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+.project-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.project-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.project-tag.firmware { background: rgba(34,229,255,0.1); color: var(--cyan); border: 1px solid rgba(34,229,255,0.3); }
+.project-tag.hardware { background: rgba(57,255,140,0.1); color: var(--green); border: 1px solid rgba(57,255,140,0.3); }
+.project-tag.software { background: rgba(57,255,140,0.1); color: var(--green); border: 1px solid rgba(57,255,140,0.3); }
+.project-tag.education { background: rgba(34,229,255,0.1); color: var(--cyan); border: 1px solid rgba(34,229,255,0.3); }
+.project-tag.leadership { background: rgba(255,207,107,0.1); color: var(--amber-signal); border: 1px solid rgba(255,207,107,0.3); }
+.project-tag.testing { background: rgba(168,85,247,0.1); color: #a855f7; border: 1px solid rgba(168,85,247,0.3); }
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+.project-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-subtle);
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.project-link:hover {
+  color: var(--green-dim);
+}
+.project-link svg {
+  width: 14px;
+  height: 14px;
+}
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .projects-filters {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tech stack pills */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.stack-pill {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--bg-void);
+  border: 1px solid var(--line-strong);
+  color: var(--text-secondary);
+}
+
+/* Expand/collapse case-study details */
+.project-expand-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 4px;
+}
+.project-expand-toggle:hover { color: var(--green-dim); }
+.project-expand-toggle svg { width: 15px; height: 15px; transition: transform .2s ease; }
+.project-card.is-open .project-expand-toggle svg { transform: rotate(180deg); }
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+.project-card.is-open .project-details { max-height: 1400px; }
+.project-details-inner { padding-top: 14px; border-top: 1px solid var(--line-subtle); margin-top: 6px; }
+.project-details h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cyan);
+  margin: 14px 0 6px;
+}
+.project-details h4:first-child { margin-top: 0; }
+.project-details p, .project-details li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.project-details ul { padding-left: 18px; margin: 0; }
+.project-details ul li { margin-bottom: 4px; }
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.project-repo-note {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: -20px 0 30px;
+}
+</style>
+</head>
+<body>
+<div class="circuit-grid" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <div class="inner">
+    <div class="brand">Jerwin Enrique<span class="caret"></span></div>
+    <ul>
+      <li><a class="nav-link" href="index.html">Home</a></li>
+      <li><a class="nav-link" href="about.html">About</a></li>
+      <li><a class="nav-link is-active" href="projects.html">Projects</a></li>
+      <li><a class="nav-link" href="experience.html">Experience</a></li>
+      <li><a class="nav-link" href="skills-matrix.html">Skills Matrix</a></li>
+      <li><a class="nav-link" href="awards.html">Awards</a></li>
+      <li><a class="nav-link" href="resume.html">Resume</a></li>
+      <li><a class="nav-link" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" type="button">
+        <svg data-lucide="moon" class="icon-moon"></svg>
+        <svg data-lucide="sun" class="icon-sun"></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-shell">
+  <header class="page-hero">
+    <div class="eyebrow">01 // Project Portfolio</div>
+    <h1>Featured Projects</h1>
+    <p class="lede">A list of academic and personal projects, including my undergraduate thesis. Detailed write-ups are being added over time.</p>
+  </header>
+
+  <section class="block">
+    <div class="block-heading">
+      <span class="idx">01</span>
+      <h2>Project Categories</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="projects-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="thesis">Thesis</button>
+      <button class="filter-btn" data-filter="iot">IoT &amp; Embedded</button>
+      <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+      <button class="filter-btn" data-filter="ai">AI Applications</button>
+      <button class="filter-btn" data-filter="system">Systems &amp; Web Dev</button>
+    </div>
+  </section>
+
+  <p class="project-repo-note">Click "View Full Case Study" on any card for background, problem, solution, features, and challenges. Source code and demos are linked where publicly available.</p>
+
+  <section class="projects-grid" id="projects-grid">
+    <!-- IoT-Based Balance and Tremor Exercise Board — undergraduate thesis -->
+    <article class="project-card" data-tags="thesis,iot,mobile">
+      <div class="project-image">
+        <svg data-lucide="activity" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag education">Undergraduate Thesis</span>
+        <h3 class="project-title">IoT-Based Balance and Tremor Exercise Board for Parkinson's Disease Patients</h3>
+        <p class="project-description">An IoT-connected exercise board that helps Parkinson's disease patients perform guided balance and tremor exercises, while continuously tracking blood pressure and syncing session data to a companion Android app built with Flutter.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Arduino / Microcontroller</span>
+          <span class="stack-pill">IoT Sensors</span>
+          <span class="stack-pill">Blood Pressure Module</span>
+          <span class="stack-pill">Flutter</span>
+          <span class="stack-pill">Android Studio</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-1">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-1">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Developed as my undergraduate thesis at Jose Rizal University, this project responds to the balance instability and hand/limb tremors common in Parkinson's disease, which make guided physical therapy exercises difficult to perform and monitor consistently at home.</p>
+            <h4>Problem Statement</h4>
+            <p>Patients often lack an affordable way to perform balance and tremor exercises with real-time feedback, and caregivers have no easy way to track exercise consistency or vital signs like blood pressure between clinic visits.</p>
+            <h4>Solution</h4>
+            <p>A physical exercise board fitted with balance and tremor-sensing hardware plus an integrated blood pressure monitor, all connected over IoT to a companion Android application that logs sessions, displays progress, and surfaces vitals in an easy-to-read format for the patient and caregiver.</p>
+            <h4>Hardware</h4>
+            <ul>
+              <li>Balance/tremor exercise board with embedded sensors</li>
+              <li>Blood pressure monitoring module</li>
+              <li>Microcontroller for sensor data acquisition and wireless transmission</li>
+            </ul>
+            <h4>Software</h4>
+            <ul>
+              <li>Android companion app developed in Android Studio using Flutter/Dart</li>
+              <li>Real-time data sync between the exercise board and the mobile app</li>
+              <li>Session history and blood pressure trend display for patients and caregivers</li>
+            </ul>
+            <h4>Challenges</h4>
+            <p>Calibrating tremor/balance sensors for reliable, consistent readings across different patients, and building a mobile interface simple enough for elderly users while still surfacing meaningful health data.</p>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">IoT Systems Design</span>
+              <span class="tag-pill">Embedded Sensors</span>
+              <span class="tag-pill">Flutter / Android Dev</span>
+              <span class="tag-pill">Healthcare Tech</span>
+              <span class="tag-pill">Thesis Research</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Jose Rizal University — Thesis</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cybernate AI Scam Detection Application -->
+    <article class="project-card" data-tags="ai,mobile">
+      <div class="project-image">
+        <svg data-lucide="shield-alert" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag software">AI &amp; Mobile App</span>
+        <h3 class="project-title">Cybernate — AI Scam Detection Application</h3>
+        <p class="project-description">A mobile application that uses AI to help everyday users identify potential scam messages, links, and calls before they fall victim — built as an Android app to make scam awareness accessible and portable.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Flutter</span>
+          <span class="stack-pill">Android Studio</span>
+          <span class="stack-pill">AI / Machine Learning</span>
+          <span class="stack-pill">Python</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-2">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-2">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Scams delivered through text messages, links, and calls are a widespread and growing risk, especially for users who aren't familiar with common red flags. Cybernate was built to give people a quick, AI-assisted second opinion before they engage with a suspicious message.</p>
+            <h4>Problem Statement</h4>
+            <p>Most people have no simple, on-the-go way to check whether a message or link they've received is likely to be a scam, and often only realize after damage is already done.</p>
+            <h4>Solution</h4>
+            <p>An Android application, developed with Flutter and Android Studio, that applies AI/ML techniques to flag suspicious content and give users a clear risk assessment, packaged in an approachable mobile interface.</p>
+            <h4>Software</h4>
+            <ul>
+              <li>Flutter-based Android app UI/UX</li>
+              <li>AI/ML-driven scam and risk detection logic</li>
+              <li>Simple, recruiter/user-friendly result screens (safe / suspicious / high-risk)</li>
+            </ul>
+            <h4>Features</h4>
+            <ul>
+              <li>Scam-likelihood analysis for messages and links</li>
+              <li>Mobile-first design for on-the-go checks</li>
+              <li>Applies AI/ML fundamentals learned through coursework and self-directed practice</li>
+            </ul>
+            <h4>Challenges</h4>
+            <p>Balancing detection accuracy with a simple, non-technical presentation so the app stays usable for people with no cybersecurity background.</p>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">AI / Machine Learning</span>
+              <span class="tag-pill">Flutter Development</span>
+              <span class="tag-pill">Android Studio</span>
+              <span class="tag-pill">Cybersecurity Awareness</span>
+              <span class="tag-pill">Mobile UI/UX</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Personal / Academic Project</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- AI Plant Disease Detection System -->
+    <article class="project-card" data-tags="ai">
+      <div class="project-image">
+        <svg data-lucide="leaf" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag software">AI Application</span>
+        <h3 class="project-title">AI Plant Disease Detection System</h3>
+        <p class="project-description">An AI-based system that identifies plant diseases from leaf images, aimed at helping farmers and hobbyist growers catch problems early and reduce crop loss.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">AI / Machine Learning</span>
+          <span class="stack-pill">Image Classification</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-3">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-3">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Plant diseases can spread quickly and are often caught too late by the naked eye, leading to significant crop loss for farmers and hobbyist growers alike.</p>
+            <h4>Problem Statement</h4>
+            <p>Manual disease diagnosis requires expertise that isn't always available, especially in rural or small-scale farming settings.</p>
+            <h4>Solution</h4>
+            <p>An AI-powered detection system that analyzes leaf images to classify common plant diseases, giving growers a fast, low-cost first opinion.</p>
+            <h4>Features</h4>
+            <ul>
+              <li>Image-based disease classification using AI/ML models</li>
+              <li>Designed for accessibility by non-technical users</li>
+            </ul>
+            <h4>Challenges</h4>
+            <p>Working with limited/varied image quality and ensuring the model generalizes across different lighting conditions and plant species.</p>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">AI / Machine Learning</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Image Classification</span>
+              <span class="tag-pill">Applied Research</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Academic Project</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- IoT-Based Automated Ground Water Quality Monitoring System -->
+    <article class="project-card" data-tags="iot">
+      <div class="project-image">
+        <svg data-lucide="droplet" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag hardware">IoT &amp; Embedded</span>
+        <h3 class="project-title">IoT-Based Automated Ground Water Quality Monitoring System</h3>
+        <p class="project-description">An automated IoT system that monitors ground water quality parameters in real time, reducing the need for manual sample testing and enabling faster response to contamination.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Arduino / Sensors</span>
+          <span class="stack-pill">IoT</span>
+          <span class="stack-pill">Water Quality Sensors</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-4">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-4">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Ground water quality can change quickly due to contamination, and manual testing is slow, infrequent, and labor-intensive.</p>
+            <h4>Problem Statement</h4>
+            <p>Communities and facilities relying on ground water often lack continuous, real-time visibility into water quality parameters like pH, turbidity, and other indicators.</p>
+            <h4>Solution</h4>
+            <p>An automated IoT-based monitoring system that continuously collects water quality sensor data and reports it, enabling faster detection of unsafe conditions.</p>
+            <h4>Hardware</h4>
+            <ul>
+              <li>Water quality sensors (pH / turbidity / related parameters)</li>
+              <li>Microcontroller-based data acquisition and transmission</li>
+            </ul>
+            <h4>Challenges</h4>
+            <p>Ensuring sensor readings remained accurate and stable in outdoor/field conditions over time.</p>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">IoT Systems</span>
+              <span class="tag-pill">Embedded Sensors</span>
+              <span class="tag-pill">Environmental Monitoring</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Academic Project</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- RFID Attendance Management System -->
+    <article class="project-card" data-tags="iot,system">
+      <div class="project-image">
+        <svg data-lucide="credit-card" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag hardware">IoT &amp; Systems</span>
+        <h3 class="project-title">RFID Attendance Management System</h3>
+        <p class="project-description">An RFID-based attendance system that automates check-in/check-out logging, replacing manual attendance sheets with fast, tap-based tracking backed by a database.</p>
+        <div class="project-stack">
+          <span class="stack-pill">RFID</span>
+          <span class="stack-pill">Microcontroller</span>
+          <span class="stack-pill">SQL Database</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-5">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-5">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Manual attendance tracking (sign-in sheets) is slow, error-prone, and difficult to audit or report on.</p>
+            <h4>Problem Statement</h4>
+            <p>Organizations need a fast, tamper-resistant way to record attendance and generate accurate records without manual data entry.</p>
+            <h4>Solution</h4>
+            <p>An RFID tap-based attendance system where each scan is logged directly to a database, with records available for reporting.</p>
+            <h4>Hardware</h4>
+            <ul>
+              <li>RFID reader and tags/cards</li>
+              <li>Microcontroller interfacing with the RFID reader</li>
+            </ul>
+            <h4>Software</h4>
+            <ul>
+              <li>SQL database for attendance records</li>
+              <li>Basic reporting/admin view of logged attendance</li>
+            </ul>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">RFID / Embedded Systems</span>
+              <span class="tag-pill">SQL Database Design</span>
+              <span class="tag-pill">System Automation</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Academic Project</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Library Management System — JRU academic/systems project -->
+    <article class="project-card" data-tags="system">
+      <div class="project-image">
+        <svg data-lucide="book-marked" width="48" height="48"></svg>
+      </div>
+      <div class="project-content">
+        <span class="project-tag software">System Development</span>
+        <h3 class="project-title">Library Management System</h3>
+        <p class="project-description">A system-development project built for Jose Rizal University: a library management system covering book cataloging, borrowing/return workflow, member records, and an admin dashboard, backed by a SQL database.</p>
+        <div class="project-stack">
+          <span class="stack-pill">HTML / CSS</span>
+          <span class="stack-pill">SQL</span>
+          <span class="stack-pill">Database Design</span>
+        </div>
+        <button class="project-expand-toggle" data-target="pd-6">
+          <svg data-lucide="chevron-down"></svg> View Full Case Study
+        </button>
+        <div class="project-details" id="pd-6">
+          <div class="project-details-inner">
+            <h4>Background</h4>
+            <p>Built as an academic system-development project to practice full-cycle application design: from database schema to a usable admin interface.</p>
+            <h4>Problem Statement</h4>
+            <p>Small libraries often manage cataloging and borrowing manually, making it hard to track book availability and member borrowing history.</p>
+            <h4>Solution</h4>
+            <p>A library management system with book cataloging, a borrow/return workflow, member records, and an admin dashboard for oversight.</p>
+            <h4>Features</h4>
+            <ul>
+              <li>Book cataloging and inventory tracking</li>
+              <li>Borrow/return workflow with due-date tracking</li>
+              <li>Member records management</li>
+              <li>Admin dashboard for librarians</li>
+            </ul>
+            <h4>Skills Demonstrated</h4>
+            <div class="tag-row">
+              <span class="tag-pill">Relational Database Design</span>
+              <span class="tag-pill">SQL</span>
+              <span class="tag-pill">Web Development</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <span>Jose Rizal University</span>
+          <span>In progress</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <div style="text-align:center; margin: -30px 0 60px;">
+    <a href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" class="btn-secondary">
+      <svg class="btn-icon" data-lucide="github"></svg> See More on GitHub
+    </a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-social">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <a class="social-link" href="mailto:jerwinenrique14@gmail.com" aria-label="Email Jerwin"><svg data-lucide="mail"></svg></a>
+    </div>
+        <p>Built with semantic HTML · CSS variables · vanilla JavaScript · GitHub Pages ready</p>
+    <p>&copy; <span id="year"></span> Jerwin Enrique. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="portfolio-data.js"></script>
+<script src="theme.js"></script>
+<script src="chatbot-widget.js"></script>
+<script>
+safeCreateIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.dataset.filter;
+
+      // Show/hide projects based on filter
+      projectCards.forEach(card => {
+        const tags = card.dataset.tags.split(',');
+        if (filter === 'all' || tags.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Expand/collapse full case-study details on each project card
+  document.querySelectorAll('.project-expand-toggle').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const card = this.closest('.project-card');
+      const isOpen = card.classList.toggle('is-open');
+      const label = this.querySelector('span') || this;
+      this.innerHTML = isOpen
+        ? '<svg data-lucide="chevron-down"></svg> Hide Full Case Study'
+        : '<svg data-lucide="chevron-down"></svg> View Full Case Study';
+      safeCreateIcons();
+    });
+  });
+});
+</script>
+</body>
+</html>

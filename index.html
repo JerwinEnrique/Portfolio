@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('portfolio-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {}
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerwin Enrique — Computer Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Jerwin Enrique, Computer Engineering student at Jose Rizal University, showcasing IT support experience, certifications, and academic projects.">
+<link rel="canonical" href="https://jerwinenrique.github.io/portfolio/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jerwin Enrique — Computer Engineering Portfolio">
+<meta property="og:description" content="Portfolio of Jerwin Enrique, Computer Engineering student at Jose Rizal University, showcasing IT support experience, certifications, and academic projects.">
+<meta property="og:url" content="https://jerwinenrique.github.io/portfolio/index.html">
+<meta property="og:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<meta property="og:site_name" content="Jerwin Enrique — Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jerwin Enrique — Computer Engineering Portfolio">
+<meta name="twitter:description" content="Portfolio of Jerwin Enrique, Computer Engineering student at Jose Rizal University, showcasing IT support experience, certifications, and academic projects.">
+<meta name="twitter:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-theme.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="portfolio-data.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jerwin Enrique",
+  "jobTitle": "Computer Engineering Student",
+  "url": "https://jerwinenrique.github.io/portfolio/index.html",
+  "image": "https://jerwinenrique.github.io/portfolio/profile-photo.jpg",
+  "email": "mailto:jerwinenrique14@gmail.com",
+  "telephone": "+63-947-738-8439",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Jose Rizal University"
+  },
+  "sameAs": [
+    "https://github.com/JerwinEnrique",
+    "https://www.linkedin.com/in/jerwin-enrique-3150a6376"
+  ]
+}
+</script>
+<style>
+  /* Hero section styles */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .hero-photo {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid var(--green);
+    box-shadow: 0 4px 12px rgba(57,255,140,0.3);
+    object-fit: cover;
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 5vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    background: linear-gradient(to right, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(57,255,140,0.1);
+    border: 1px solid rgba(57,255,140,0.3);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: #04140a;
+    border: 2px solid var(--green);
+  }
+
+  .btn-primary:hover {
+    background: var(--green-dim);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(57,255,140,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--line-strong);
+    color: var(--text-primary);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(57,255,140,0.1);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .btn-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Stats section */
+  .stats-section {
+    background: var(--bg-surface);
+    border-radius: 8px;
+    padding: 32px;
+    margin: 40px 0;
+    border: 1px solid var(--line-subtle);
+  }
+
+  .stats-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .stats-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stats-header p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 16px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(to bottom, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Achievements section */
+  .achievements-section {
+    padding: 60px 0;
+  }
+
+  .achievements-heading {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .achievements-heading h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .achievements-heading p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+  }
+
+  .achievement-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--line-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .achievement-item:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(57,255,140,0.15);
+  }
+
+  .achievement-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(57,255,140,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .achievement-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--green);
+  }
+
+  .achievement-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .achievement-count {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(to bottom, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .achievement-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  /* Features section */
+  .features-section {
+    padding: 60px 0;
+  }
+
+  .features-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .features-heading h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    background: linear-gradient(to right, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--line-subtle);
+    border-radius: 8px;
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(57,255,140,0.15);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(57,255,140,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--green);
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .feature-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Call to action */
+  .cta-section {
+    text-align: center;
+    padding: 60px 0;
+    background: radial-gradient(ellipse at center, rgba(57,255,140,0.05) 0%, transparent 70%);
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, var(--green), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cta-description {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  /* Chatbot widget styles now live in portfolio-theme.css (shared across pages) */
+
+  /* Contact form */
+  .contact-form {
+    text-align: left;
+    max-width: 480px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row { display: flex; flex-direction: column; gap: 6px; }
+  .form-row label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .form-row input,
+  .form-row textarea {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    resize: vertical;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(57,255,140,0.15);
+  }
+  .contact-form .btn-primary {
+    align-self: flex-start;
+  }
+  .contact-form .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  .cf-status {
+    font-size: 0.875rem;
+    margin: 4px 0 0;
+    min-height: 1.2em;
+  }
+  .cf-status.is-success { color: var(--green); }
+  .cf-status.is-error { color: #ff6b6b; }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-text {
+      text-align: center;
+    }
+
+    .hero-badges {
+      justify-content: center;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 60px;
+    }
+
+    .hero-photo {
+      flex: 0 0 150px;
+      max-width: 150px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .achievements-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+
+</style>
+</head>
+<body>
+<div class="circuit-grid" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <div class="inner">
+    <div class="brand">Jerwin Enrique<span class="caret"></span></div>
+    <ul>
+      <li><a class="nav-link is-active" href="index.html">Home</a></li>
+      <li><a class="nav-link" href="about.html">About</a></li>
+      <li><a class="nav-link" href="projects.html">Projects</a></li>
+      <li><a class="nav-link" href="experience.html">Experience</a></li>
+      <li><a class="nav-link" href="skills-matrix.html">Skills Matrix</a></li>
+      <li><a class="nav-link" href="awards.html">Awards</a></li>
+      <li><a class="nav-link" href="resume.html">Resume</a></li>
+      <li><a class="nav-link" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" type="button">
+        <svg data-lucide="moon" class="icon-moon"></svg>
+        <svg data-lucide="sun" class="icon-sun"></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-shell">
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-photo">
+        <img src="profile-photo.jpg" alt="Jerwin Enrique" width="200" height="200" loading="eager">
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title">Computer Engineering Student</h1>
+        <p class="hero-subtitle">Hardworking and motivated Computer Engineering student at Jose Rizal University with hands-on IT support experience and a growing foundation across web development, databases, AI/ML, cloud computing, and robotics/embedded systems. I work well in a team, communicate effectively, and adapt quickly in fast-paced environments.</p>
+
+        <div class="hero-badges">
+          <span class="badge"><svg data-lucide="graduation-cap" width="16" height="16"></svg> BS Computer Engineering, Class of 2027</span>
+          <span class="badge"><svg data-lucide="award" width="16" height="16"></svg> 2x ICpEP Competition Finalist</span>
+          <span class="badge"><svg data-lucide="cloud" width="16" height="16"></svg> AWS Certified Cloud Practitioner</span>
+          <span class="badge"><svg data-lucide="users" width="16" height="16"></svg> CTO, AWS Learning Community (JRU) 2024–2025</span>
+          <span class="badge"><svg data-lucide="star" width="16" height="16"></svg> Top 8, BSCpE Academic Excellence Awardee</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="resume.html" class="btn-primary"><svg class="btn-icon" data-lucide="file-text"></svg> View Resume</a>
+          <a href="projects.html" class="btn-secondary"><svg class="btn-icon" data-lucide="git-branch"></svg> View Projects</a>
+          <a href="experience.html" class="btn-secondary"><svg class="btn-icon" data-lucide="git-commit"></svg> View Experience</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-section">
+    <div class="stats-header">
+      <h2>Professional Summary</h2>
+      <p>A hardworking and motivated Computer Engineering student with basic technical and customer service skills. Able to work well in a team, communicate effectively, and adapt quickly in fast-paced environments. Willing to learn and gain experience while providing excellent service.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2027</span>
+        <span class="stat-label">Expected Graduation</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Featured Projects</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">AWS</span>
+        <span class="stat-label">Cloud Certified</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements-section">
+    <div class="achievements-heading">
+      <h2>Key Achievements & Recognitions</h2>
+      <p>Highlighting key accomplishments that demonstrate technical excellence and leadership</p>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement-item">
+        <div class="achievement-icon">
+          <svg data-lucide="award"></svg>
+        </div>
+        <div class="achievement-title">Awards & Honors</div>
+        <div class="achievement-count">6</div>
+        <div class="achievement-label">Competitions &amp; Academic Excellence</div>
+      </div>
+
+      <div class="achievement-item">
+        <div class="achievement-icon">
+          <svg data-lucide="git-branch"></svg>
+        </div>
+        <div class="achievement-title">Featured Projects</div>
+        <div class="achievement-count">6</div>
+        <div class="achievement-label">Academic & Personal Projects</div>
+      </div>
+
+      <div class="achievement-item">
+        <div class="achievement-icon">
+          <svg data-lucide="code"></svg>
+        </div>
+        <div class="achievement-title">Technical Skills</div>
+        <div class="achievement-count">38</div>
+        <div class="achievement-label">Across 9 Domains — see Skills Matrix</div>
+      </div>
+
+      <div class="achievement-item">
+        <div class="achievement-icon">
+          <svg data-lucide="users"></svg>
+        </div>
+        <div class="achievement-title">Soft Skills</div>
+        <div class="achievement-count">5</div>
+        <div class="achievement-label">Communication, Teamwork &amp; More</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section" id="home-credentials" style="margin-top:0;">
+    <div class="stats-header">
+      <h2>Certifications &amp; Awards</h2>
+      <p>A quick look &mdash; full details on the Experience and Awards pages.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:32px;" id="home-credentials-grid">
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:12px; color:var(--text-primary);">Certifications</h3>
+        <ul id="home-cert-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary); font-size:0.9rem;"></ul>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:12px; color:var(--text-primary);">Awards</h3>
+        <ul id="home-award-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary); font-size:0.9rem;"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-heading">
+      <h2>Core Competencies</h2>
+      </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="wrench"></svg>
+        </div>
+        <h3 class="feature-title">Hardware & Software Troubleshooting</h3>
+        <p class="feature-description">Hands-on experience diagnosing and resolving computer hardware and software issues, gained through OJT and coursework in computer systems servicing.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="monitor"></svg>
+        </div>
+        <h3 class="feature-title">OS Installation & Maintenance</h3>
+        <p class="feature-description">Comfortable installing operating systems and performing preventive maintenance: system cleaning, software updates, and antivirus scans.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="network"></svg>
+        </div>
+        <h3 class="feature-title">Network Configuration</h3>
+        <p class="feature-description">Practical experience setting up and troubleshooting network connections as part of IT support and OJT work.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="code-2"></svg>
+        </div>
+        <h3 class="feature-title">Programming Languages</h3>
+        <p class="feature-description">Java, C, Python, HTML, CSS, SQL, Assembly, and Verilog — from application logic down to digital-logic/HDL fundamentals.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="globe"></svg>
+        </div>
+        <h3 class="feature-title">Web Development (Frontend &amp; Backend)</h3>
+        <p class="feature-description">Building frontend UIs and backend/database-driven web applications, with version control via Git/GitHub.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="smartphone"></svg>
+        </div>
+        <h3 class="feature-title">Mobile App Development</h3>
+        <p class="feature-description">Building Android apps in Android Studio with Flutter/Dart — including the companion apps for the Cybernate scam-detection app and the IoT Balance &amp; Tremor Exercise Board thesis project.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="database"></svg>
+        </div>
+        <h3 class="feature-title">Database &amp; SQL</h3>
+        <p class="feature-description">SQL query writing, relational database design, and MySQL database management for application backends.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="brain-circuit"></svg>
+        </div>
+        <h3 class="feature-title">AI &amp; Machine Learning</h3>
+        <p class="feature-description">Applying AI/ML fundamentals in hands-on projects like Cybernate (AI scam detection) and AI-based plant disease detection.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="bot"></svg>
+        </div>
+        <h3 class="feature-title">Robotics, PCB &amp; Embedded Systems</h3>
+        <p class="feature-description">PCB circuit design, Raspberry Pi and Arduino programming, and sensor/robot control — proven through 2 ICpEP robotics competition placements.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="cloud"></svg>
+        </div>
+        <h3 class="feature-title">Cloud Computing Fundamentals</h3>
+        <p class="feature-description">AWS Certified Cloud Practitioner with foundational knowledge of cloud concepts, core AWS services, security, and pricing.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="shield"></svg>
+        </div>
+        <h3 class="feature-title">Cybersecurity</h3>
+        <p class="feature-description">CompTIA ITF+ grounding in security concepts, plus AWS cloud security/compliance basics, network security, and system hardening from hands-on IT support work.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg data-lucide="file-spreadsheet"></svg>
+        </div>
+        <h3 class="feature-title">Microsoft Office</h3>
+        <p class="feature-description">Proficient with Microsoft Office tools for documentation, reporting, and everyday productivity tasks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="cta-title">Let's Work Together</h2>
+    <p class="cta-description">I'm open to entry-level and internship opportunities across the roles my Computer Engineering background prepares me for — where I can keep learning and contribute to a team.</p>
+    <div class="hero-badges" style="justify-content:center; margin-bottom:32px;">
+      <span class="badge"><svg data-lucide="brain-circuit" width="16" height="16"></svg> AI Engineer</span>
+      <span class="badge"><svg data-lucide="shield" width="16" height="16"></svg> Cybersecurity Analyst</span>
+      <span class="badge"><svg data-lucide="cloud" width="16" height="16"></svg> Cloud Engineer</span>
+      <span class="badge"><svg data-lucide="globe" width="16" height="16"></svg> Web / Software Developer</span>
+      <span class="badge"><svg data-lucide="bot" width="16" height="16"></svg> Embedded Systems / IoT Developer</span>
+      <span class="badge"><svg data-lucide="network" width="16" height="16"></svg> Network Engineer</span>
+      <span class="badge"><svg data-lucide="wrench" width="16" height="16"></svg> IT Support Specialist</span>
+      <span class="badge"><svg data-lucide="database" width="16" height="16"></svg> Database Administrator</span>
+    </div>
+    <a href="projects.html" class="btn-primary"><svg class="btn-icon" data-lucide="git-branch"></svg> Explore My Work</a>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="section-content" style="text-align:center; max-width:600px; margin:0 auto;">
+      <h2>Contact Me</h2>
+      <p>Send a message directly, or reach out via email/phone.</p>
+      <div style="margin:20px 0;">
+        <span style="margin:0 10px;"><svg data-lucide="mail" width="24" height="24"></svg> jerwinenrique14@gmail.com</span>
+        <span style="margin:0 10px;"><svg data-lucide="phone" width="24" height="24"></svg> 09477388439</span>
+      </div>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required maxlength="120" autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required maxlength="160" autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" required maxlength="2000" rows="5"></textarea>
+        </div>
+        <!-- Honeypot field — hidden from real visitors, catches simple bots -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="btn-primary" id="cf-submit">
+          <svg class="btn-icon" data-lucide="send"></svg> Send Message
+        </button>
+        <p id="cf-status" class="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
+        <a href="resume.pdf" class="btn-primary" download="Jerwin-Enrique-Resume.pdf"><svg data-lucide="arrow-down" width="20" height="20"></svg> Download Resume</a>
+        <a href="resume.html" class="btn-secondary"><svg data-lucide="file-text" width="20" height="20"></svg> View Resume Page</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+<div class="footer-content">
+<div class="footer-social">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <a class="social-link" href="mailto:jerwinenrique14@gmail.com" aria-label="Email Jerwin"><svg data-lucide="mail"></svg></a>
+    </div>
+    <p>Built with semantic HTML · CSS variables · vanilla JavaScript · GitHub Pages ready</p>
+<p>&copy; <span id="year"></span> Jerwin Enrique. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+safeCreateIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function renderHomeCredentials() {
+  const data = window.PORTFOLIO_DATA || {};
+  const certList = document.getElementById('home-cert-list');
+  const awardList = document.getElementById('home-award-list');
+  if (certList) {
+    certList.innerHTML = (data.certifications || []).map(c =>
+      `<li>&bull; <strong>${c.title}</strong> \u2014 ${c.date}</li>`
+    ).join('');
+  }
+  if (awardList) {
+    awardList.innerHTML = (data.awards || []).map(a =>
+      `<li>&bull; <strong>${a.title}</strong> \u2014 ${a.date}</li>`
+    ).join('');
+  }
+})();
+(function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('cf-status');
+  const submitBtn = document.getElementById('cf-submit');
+
+  // FormSubmit.co delivers submissions straight to this email address —
+  // no server or API key needed. The FIRST submission after deploying
+  // triggers a one-time confirmation email from FormSubmit to
+  // jerwinenrique14@gmail.com; click "Activate Form" in that email once,
+  // and every submission after that lands in the inbox normally.
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/jerwinenrique14@gmail.com';
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    status.textContent = '';
+    status.className = 'cf-status';
+
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = 'Please fill in your name, email, and message.';
+      status.className = 'cf-status is-error';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _subject: `Portfolio contact form — message from ${name}`
+        })
+      });
+
+      if (response.ok) {
+        status.textContent = "Thanks! Your message has been sent — I'll get back to you soon.";
+        status.className = 'cf-status is-success';
+        form.reset();
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (err) {
+      status.textContent = "Something went wrong sending that. Please email jerwinenrique14@gmail.com directly instead.";
+      status.className = 'cf-status is-error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<svg class="btn-icon" data-lucide="send"></svg> Send Message';
+      safeCreateIcons();
+    }
+  });
+})();
+</script>
+<script src="theme.js"></script>
+<script src="chatbot-widget.js"></script>
+</body>
+</html>

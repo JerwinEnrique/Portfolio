@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('portfolio-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {}
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Matrix — Jerwin Enrique | Computer Engineering Portfolio</title>
+<meta name="description" content="Interactive, filterable skills matrix covering IT/hardware support, robotics/PCB, programming languages, web development, databases, AI/ML, cloud, and cybersecurity skills for Jerwin Enrique.">
+<link rel="canonical" href="https://jerwinenrique.github.io/portfolio/skills-matrix.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Skills Matrix — Jerwin Enrique">
+<meta property="og:description" content="Interactive, filterable skills matrix covering IT/hardware support, robotics/PCB, programming languages, web development, databases, AI/ML, cloud, and cybersecurity skills for Jerwin Enrique.">
+<meta property="og:url" content="https://jerwinenrique.github.io/portfolio/skills-matrix.html">
+<meta property="og:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<meta property="og:site_name" content="Jerwin Enrique — Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skills Matrix — Jerwin Enrique">
+<meta name="twitter:description" content="Interactive, filterable skills matrix covering IT/hardware support, robotics/PCB, programming languages, web development, databases, AI/ML, cloud, and cybersecurity skills for Jerwin Enrique.">
+<meta name="twitter:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-theme.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+  /* ---------------- Terminal window (the signature element) ---------------- */
+  .terminal {
+    background: var(--bg-terminal);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 0 40px rgba(57,255,140,0.06);
+  }
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: #0e1a16;
+    border-bottom: 1px solid var(--line-subtle);
+  }
+  .terminal-bar .light { width: 10px; height: 10px; border-radius: 50%; }
+  .terminal-bar .light.r { background: #ff5f57; }
+  .terminal-bar .light.y { background: #febc2e; }
+  .terminal-bar .light.g { background: #28c840; }
+  .terminal-bar .title {
+    margin-left: 10px;
+    font-size: 11.5px;
+    color: var(--text-dim);
+  }
+  .terminal-body { padding: 18px 20px 20px; }
+  .terminal-body .line { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+  .terminal-body .line .prompt { color: var(--green); }
+  .terminal-body .line .path { color: var(--cyan); }
+  .terminal-body .cmd-echo {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+  .terminal-body .cmd-echo .caret {
+    display: inline-block;
+    width: 7px; height: 13px;
+    background: var(--green);
+    margin-left: 3px;
+    vertical-align: -2px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+  .output-summary {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line-subtle);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .output-summary strong { color: var(--green); }
+
+  /* ---------------- Matrix ---------------- */
+  .matrix-category { margin-bottom: 40px; }
+  .matrix-category:last-child { margin-bottom: 0; }
+  .category-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .category-head .chip-icon {
+    width: 30px; height: 30px;
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line-strong);
+    color: var(--green);
+    background: rgba(57,255,140,0.05);
+  }
+  .matrix-category[data-accent="cyan"] .chip-icon { color: var(--cyan); background: rgba(34,229,255,0.05); }
+  .category-head .chip-icon svg { width: 16px; height: 16px; }
+  .category-head h3 { font-size: 14.5px; font-weight: 700; color: var(--text-primary); }
+  .category-head .count { font-size: 11px; color: var(--text-dim); margin-left: auto; }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 720px) { .skill-grid { grid-template-columns: 1fr; } }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    background: var(--bg-surface);
+    border: 1px solid var(--line-subtle);
+    border-radius: var(--radius);
+    transition: opacity .2s ease, border-color .2s ease, filter .2s ease, transform .2s ease;
+  }
+  .skill-row .name { font-size: 13px; color: var(--text-primary); }
+  .skill-row .domain-tag {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: block;
+    margin-top: 2px;
+  }
+  .skill-row .bar {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .matrix-category[data-accent="cyan"] .skill-row .bar { color: var(--cyan); }
+  .skill-row .bar .off { color: var(--line-strong); }
+  .skill-row .level-num { font-size: 10.5px; color: var(--text-dim); margin-left: 6px; }
+
+  /* filtered-out state */
+  .skill-row.is-dimmed {
+    opacity: 0.28;
+    filter: grayscale(0.6);
+  }
+  /* actively matched state (glow) */
+  .skill-row.is-match {
+    border-color: var(--green);
+    box-shadow: 0 0 0 1px rgba(57,255,140,0.2), 0 0 16px rgba(57,255,140,0.12);
+  }
+  .matrix-category[data-accent="cyan"] .skill-row.is-match {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px rgba(34,229,255,0.2), 0 0 16px rgba(34,229,255,0.12);
+  }
+</style>
+</head>
+<body>
+<div class="circuit-grid" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <div class="inner">
+    <div class="brand">Jerwin Enrique<span class="caret"></span></div>
+    <ul>
+      <li><a class="nav-link" href="index.html">Home</a></li>
+      <li><a class="nav-link" href="about.html">About</a></li>
+      <li><a class="nav-link" href="projects.html">Projects</a></li>
+      <li><a class="nav-link" href="experience.html">Experience</a></li>
+      <li><a class="nav-link is-active" href="skills-matrix.html">Skills Matrix</a></li>
+      <li><a class="nav-link" href="awards.html">Awards</a></li>
+      <li><a class="nav-link" href="resume.html">Resume</a></li>
+      <li><a class="nav-link" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" type="button">
+        <svg data-lucide="moon" class="icon-moon"></svg>
+        <svg data-lucide="sun" class="icon-sun"></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-shell">
+
+  <header class="page-hero">
+    <div class="eyebrow">03 // Capability Index</div>
+    <h1>Interactive Skills Matrix</h1>
+    <p class="lede">Technical skills across IT & hardware support, robotics/PCB/embedded systems, programming languages, web development, databases, AI &amp; machine learning, cloud computing, and cybersecurity. Filter by domain to explore each group.</p>
+  </header>
+
+  <section class="block" id="matrix">
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="light r"></span><span class="light y"></span><span class="light g"></span>
+        <span class="title">engineer@portfolio: ~/skills</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line"><span class="prompt">$</span> <span class="path">~/skills</span> ls --format=matrix</div>
+        <div class="cmd-echo" id="cmd-echo">$ skills --filter=all<span class="caret"></span></div>
+        <div class="filter-row" id="filter-row" role="group" aria-label="Filter skills by domain"></div>
+        <div class="output-summary" id="output-summary"></div>
+      </div>
+    </div>
+
+    <div id="matrix-list"></div>
+
+  </section>
+
+</div>
+
+<footer class="site-footer">
+<div class="footer-content">
+<div class="footer-social">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <a class="social-link" href="mailto:jerwinenrique14@gmail.com" aria-label="Email Jerwin"><svg data-lucide="mail"></svg></a>
+    </div>
+<p>Built with semantic HTML · CSS variables · vanilla JavaScript · GitHub Pages ready</p>
+<p>&copy; <span id="year"></span> Jerwin Enrique. All rights reserved.</p>
+</div>
+</footer>
+
+<script src="portfolio-data.js"></script>
+<script>
+  safeCreateIcons();
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const categoryIcons = {
+    hardware: "cpu",
+    robotics: "bot",
+    programming: "code",
+    webdev: "globe",
+    mobile: "smartphone",
+    database: "database",
+    ai: "brain-circuit",
+    cloud: "cloud",
+    cybersecurity: "shield"
+  };
+
+  const filters = [
+    { key: "all", label: "All" },
+    { key: "hardware", label: "IT & Hardware" },
+    { key: "robotics", label: "Robotics & PCB" },
+    { key: "programming", label: "Languages" },
+    { key: "webdev", label: "Web Dev" },
+    { key: "mobile", label: "Mobile Apps" },
+    { key: "database", label: "Database" },
+    { key: "ai", label: "AI & ML" },
+    { key: "cloud", label: "Cloud" },
+    { key: "cybersecurity", label: "Cybersecurity" }
+  ];
+
+  let activeFilter = "all";
+
+  function levelBar(level) {
+    const max = 5;
+    const filled = "▮".repeat(level);
+    const empty = `<span class="off">${"▮".repeat(max - level)}</span>`;
+    return `${filled}${empty}<span class="level-num">${level}/${max}</span>`;
+  }
+
+  function renderFilters() {
+    const row = document.getElementById("filter-row");
+    row.innerHTML = filters.map(f => `
+      <button class="filter-btn${f.key === activeFilter ? ' is-active' : ''}" data-filter="${f.key}">
+        [ ${f.label} ]
+      </button>
+    `).join("");
+
+    row.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.dataset.filter;
+        renderFilters();
+        applyFilter();
+      });
+    });
+  }
+
+  function renderMatrix() {
+    const root = document.getElementById("matrix-list");
+    root.innerHTML = window.PORTFOLIO_DATA.skillCategories.map(cat => `
+      <div class="matrix-category" data-accent="${cat.accent}" data-domain="${cat.id}">
+        <div class="category-head">
+          <div class="chip-icon"><i data-lucide="${categoryIcons[cat.id] || 'box'}"></i></div>
+          <h3>${cat.label}</h3>
+          <span class="count">${cat.skills.length} skills</span>
+        </div>
+        <div class="skill-grid">
+          ${cat.skills.map(s => `
+            <div class="skill-row" data-domain="${s.domain}">
+              <div>
+                <div class="name">${s.name}</div>
+                <span class="domain-tag">${s.domain}</span>
+              </div>
+              <div class="bar">${levelBar(s.level)}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `).join("");
+    safeCreateIcons();
+  }
+
+  function applyFilter() {
+    const rows = document.querySelectorAll(".skill-row");
+    let matchCount = 0;
+    let total = rows.length;
+
+    rows.forEach(row => {
+      const matches = activeFilter === "all" || row.dataset.domain === activeFilter;
+      row.classList.toggle("is-dimmed", !matches);
+      row.classList.toggle("is-match", matches && activeFilter !== "all");
+      if (matches) matchCount++;
+    });
+
+    document.getElementById("cmd-echo").innerHTML =
+      `$ skills --filter=${activeFilter}<span class="caret"></span>`;
+
+    document.getElementById("output-summary").innerHTML =
+      activeFilter === "all"
+        ? `<strong>${total}</strong> skills indexed across <strong>${window.PORTFOLIO_DATA.skillCategories.length}</strong> domains.`
+        : `<strong>${matchCount}</strong> / ${total} skills match domain <strong>"${activeFilter}"</strong>.`;
+  }
+
+  renderFilters();
+  renderMatrix();
+  applyFilter();
+</script>
+<script src="theme.js"></script>
+<script src="chatbot-widget.js"></script>
+</body>
+</html>

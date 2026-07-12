@@ -1,0 +1,315 @@
+/**
+ * portfolio-data.js
+ * ----------------------------------------------------------------------
+ * Single source of truth for Experience, Certifications, and Skills.
+ * Both experience.html and skills-matrix.html render FROM this file,
+ * so editing your résumé content means editing THIS file only.
+ *
+ * INTEGRATION FOR YOUR AI ASSISTANT:
+ * This file exposes `window.PORTFOLIO_DATA`. If your site has a chat/AI
+ * assistant widget (e.g. on index.html), include this script before the
+ * assistant's own script, then feed it into the assistant's system
+ * context, for example:
+ *
+ *   const context = JSON.stringify(window.PORTFOLIO_DATA);
+ *   // prepend to your system prompt: "Here is the candidate's verified
+ *   // experience, certifications, and skills data: " + context
+ *
+ * This lets the assistant answer things like "What certifications do
+ * you hold?" or "Where did you get your experience?" using the exact
+ * same data rendered on these pages — no drift between chat answers
+ * and the visible site.
+ *
+ * All entries below are sourced directly from the résumé (Jerwin
+ * Enrique — Computer Engineering, Jose Rizal University) plus details
+ * provided directly for the Cybernate and IoT Balance Board mobile
+ * apps (Flutter / Android Studio). No placeholder credentials remain.
+ * ---------------------------------------------------------------------- */
+
+window.safeCreateIcons = function () {
+  try {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  } catch (e) {
+    console.warn('Icon library failed to load or render; continuing without icons.', e);
+  }
+};
+
+window.PORTFOLIO_DATA = {
+
+  timeline: [
+    {
+      id: "exp-04",
+      type: "leadership",
+      dateStart: "2024",
+      dateEnd: "2025",
+      role: "Chief Technology Officer (CTO)",
+      org: "AWS Learning Community (AWSLC) — Jose Rizal University Chapter",
+      location: "Jose Rizal University",
+      summary: "Served as CTO of the AWS Learning Community JRU chapter, leading the technical direction of the org and organizing cloud and AI learning sessions for fellow students.",
+      achievements: [
+        "Led the technical direction and project initiatives of the AWS Learning Community JRU chapter",
+        "Organized and facilitated cloud computing and AI learning sessions / workshops for members",
+        "Coordinated with fellow student officers to plan tech events and skill-building activities",
+        "Represented the organization's technical arm in planning AWS-related learning programs"
+      ],
+      tags: ["Leadership", "AWS", "Cloud Computing", "Student Organization", "Technical Mentorship"]
+    },
+    {
+      id: "exp-03",
+      type: "education",
+      dateStart: "2019",
+      dateEnd: "2023",
+      role: "ICT - Computer System Servicing",
+      org: "Fort Bonifacio High School",
+      location: "On campus",
+      summary: "Senior High School graduate in Computer System Servicing track, graduated as an Honor Student.",
+      achievements: [
+        "Graduated as an Honor Student",
+        "Completed hands-on training in computer hardware and software troubleshooting",
+        "Gained practical experience in network configuration and preventive maintenance",
+        "Developed foundational technical skills for computer systems servicing"
+      ],
+      tags: ["Honor Student", "Computer Hardware", "Software Troubleshooting", "Network Configuration", "Preventive Maintenance"]
+    },
+    {
+      id: "exp-02",
+      type: "internship",
+      dateStart: "Nov 2022",
+      dateEnd: "Jan 2023",
+      role: "OJT – IT (Computer Systems Servicing Student)",
+      org: "Jose Rizal University",
+      location: "On campus",
+      summary: "Assisted in installing, configuring, and troubleshooting computer hardware, software, and network connections. Performed preventive maintenance including system cleaning, software updates, and antivirus scans. Provided technical support for computer-related issues, ensuring minimal downtime and improved system performance.",
+      achievements: [
+        "Assisted in installing, configuring, and troubleshooting computer hardware, software, and network connections",
+        "Performed preventive maintenance including system cleaning, software updates, and antivirus scans",
+        "Provided technical support for computer-related issues, ensuring minimal downtime and improved system performance"
+      ],
+      tags: ["Hardware Troubleshooting", "Software Installation", "Network Configuration", "Preventive Maintenance", "Technical Support"]
+    },
+    {
+      id: "exp-01",
+      type: "education",
+      dateStart: "Jan 2023",
+      dateEnd: "May 2027",
+      role: "Bachelor of Science in Computer Engineering",
+      org: "Jose Rizal University",
+      location: "On campus",
+      summary: "Major in Computer Engineering. Thesis on 'IoT-based Balance and Tremor Exercise Board for Parkinson's with Blood Pressure Monitoring and Android Application'. Ranked Top 9, Top 8, and Top 8 in Academic Excellence Awards across 1st, 2nd, and 3rd year respectively.",
+      achievements: [
+        "Currently pursuing Bachelor of Science in Computer Engineering",
+        "Thesis focuses on IoT-based solution for Parkinson's disease patients",
+        "Top 9 — Academic Excellence Award, 1st Year BSCpE",
+        "Top 8 — Academic Excellence Award, 2nd Year BSCpE",
+        "Top 8 — Academic Excellence Award, 3rd Year BSCpE",
+        "Relevant coursework in computer engineering fundamentals, systems programming, and embedded systems"
+      ],
+      tags: ["Computer Engineering", "IoT", "Android Development", "Healthcare Technology", "Academic Excellence"]
+    }
+  ],
+
+  awards: [
+    {
+      id: "award-01",
+      title: "2nd Place – Sumobot Competition",
+      organizer: "Institute of Computer Engineers of the Philippines (ICpEP)",
+      date: "2023",
+      description: "Achieved second place in the Sumobot competition, showcasing skills in autonomous robot design, sensor integration, and strategic programming.",
+      icon: "cpu"
+    },
+    {
+      id: "award-02",
+      title: "2nd Place – Line Follower Robot Competition",
+      organizer: "Institute of Computer Engineers of the Philippines (ICpEP)",
+      date: "2022",
+      description: "Secured second place in the Line Follower Robot competition, demonstrating expertise in line sensing algorithms, PID control, and mechanical design.",
+      icon: "route"
+    },
+    {
+      id: "award-03",
+      title: "Top 9 – Academic Excellence Award (1st Year, BSCpE)",
+      organizer: "Jose Rizal University – College of Engineering",
+      date: "2023",
+      description: "Ranked Top 9 among 1st year Bachelor of Science in Computer Engineering students for overall academic performance.",
+      icon: "award"
+    },
+    {
+      id: "award-04",
+      title: "Top 8 – Academic Excellence Award (2nd Year, BSCpE)",
+      organizer: "Jose Rizal University – College of Engineering",
+      date: "2024",
+      description: "Ranked Top 8 among 2nd year Bachelor of Science in Computer Engineering students for overall academic performance.",
+      icon: "award"
+    },
+    {
+      id: "award-05",
+      title: "Top 8 – Academic Excellence Award (3rd Year, BSCpE)",
+      organizer: "Jose Rizal University – College of Engineering",
+      date: "2025",
+      description: "Ranked Top 8 among 3rd year Bachelor of Science in Computer Engineering students for overall academic performance.",
+      icon: "award"
+    },
+    {
+      id: "award-06",
+      title: "Honor Student – Senior High School",
+      organizer: "Fort Bonifacio High School",
+      date: "2023",
+      description: "Graduated as an Honor Student in Senior High School under the Computer System Servicing (ICT) track.",
+      icon: "graduation-cap"
+    }
+  ],
+
+  certifications: [
+    {
+      id: "cert-01",
+      title: "CompTIA IT Fundamentals+ (ITF+)",
+      issuer: "CompTIA",
+      date: "May 2024",
+      credentialId: "ITFPLUS-MAY2024-001",
+      verifyUrl: "#",
+      icon: "cpu",
+      whatItMeans: "Entry-level IT certification validating core knowledge of computer hardware, software, networking basics, security concepts, and troubleshooting — the standard on-ramp before role-based IT certifications."
+    },
+    {
+      id: "cert-02",
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "Dec 2025",
+      credentialId: "AWSCCP-DEC2025-002",
+      verifyUrl: "#",
+      icon: "cloud",
+      whatItMeans: "Foundational AWS certification validating overall understanding of the AWS Cloud, including core services, deployment models, security/compliance basics, and billing & pricing."
+    },
+    {
+      id: "cert-04",
+      title: "Wadhwani Entrepreneurship",
+      issuer: "Wadhwani Foundation",
+      date: "May 2026",
+      credentialId: "WADE-ENTREP-MAY2026-003",
+      verifyUrl: "#",
+      icon: "brain-circuit",
+      whatItMeans: "Covers foundational entrepreneurship concepts — opportunity recognition, business model basics, and early-stage startup thinking."
+    },
+    {
+      id: "cert-05",
+      title: "Wadhwani Skilling — Job Ready: Employability Skills",
+      issuer: "Wadhwani Foundation",
+      date: "May 2026",
+      credentialId: "WADE-SKILL-MAY2026-004",
+      verifyUrl: "#",
+      icon: "list",
+      whatItMeans: "Workplace-readiness training covering communication, professionalism, resume-building, and interview preparation for entry-level roles."
+    }
+  ],
+
+  /* Skill domains, filterable in the Skills Matrix page.
+     Expanded from the resume's "Technical Skills" line to reflect the
+     full stack: programming languages, web dev (frontend + backend),
+     databases, AI/ML, robotics/embedded (PCB, Raspberry Pi, Arduino),
+     cloud, and IT/hardware support. */
+  skillCategories: [
+    {
+      id: "hardware",
+      label: "IT & Hardware Support",
+      accent: "green",
+      skills: [
+        { name: "Computer Hardware & Software Troubleshooting", level: 4, domain: "hardware" },
+        { name: "Operating System Installation", level: 4, domain: "hardware" },
+        { name: "Network Configuration", level: 4, domain: "hardware" },
+        { name: "Preventive Maintenance", level: 4, domain: "hardware" },
+        { name: "Microsoft Office", level: 3, domain: "hardware" }
+      ]
+    },
+    {
+      id: "robotics",
+      label: "Robotics, PCB & Embedded Systems",
+      accent: "cyan",
+      skills: [
+        { name: "PCB Circuit Design & Schematic Layout", level: 3, domain: "robotics" },
+        { name: "Raspberry Pi Programming & GPIO Interfacing", level: 3, domain: "robotics" },
+        { name: "Arduino Programming & Microcontrollers", level: 4, domain: "robotics" },
+        { name: "Sensor Integration & Robot Control (Sumobot / Line Follower)", level: 4, domain: "robotics" },
+        { name: "Embedded Systems Prototyping", level: 3, domain: "robotics" }
+      ]
+    },
+    {
+      id: "programming",
+      label: "Programming Languages",
+      accent: "green",
+      skills: [
+        { name: "Java", level: 3, domain: "programming" },
+        { name: "C Programming", level: 3, domain: "programming" },
+        { name: "Python Programming", level: 3, domain: "programming" },
+        { name: "HTML", level: 3, domain: "programming" },
+        { name: "CSS", level: 3, domain: "programming" },
+        { name: "SQL", level: 3, domain: "programming" },
+        { name: "Assembly Language", level: 2, domain: "programming" },
+        { name: "Verilog (HDL / Digital Logic Design)", level: 2, domain: "programming" }
+      ]
+    },
+    {
+      id: "webdev",
+      label: "Web Development (Frontend & Backend)",
+      accent: "cyan",
+      skills: [
+        { name: "Frontend Development (HTML, CSS, Responsive UI)", level: 3, domain: "webdev" },
+        { name: "Backend & Server-side Logic", level: 2, domain: "webdev" },
+        { name: "Database-driven Web Applications", level: 3, domain: "webdev" },
+        { name: "Version Control (Git / GitHub)", level: 3, domain: "webdev" }
+      ]
+    },
+    {
+      id: "mobile",
+      label: "Mobile App Development",
+      accent: "green",
+      skills: [
+        { name: "Android Studio", level: 3, domain: "mobile" },
+        { name: "Flutter & Dart", level: 3, domain: "mobile" },
+        { name: "Mobile UI/UX Design", level: 3, domain: "mobile" },
+        { name: "IoT-to-Mobile Data Sync (Cybernate, IoT Balance Board apps)", level: 3, domain: "mobile" }
+      ]
+    },
+    {
+      id: "database",
+      label: "Database & SQL",
+      accent: "green",
+      skills: [
+        { name: "SQL Query Writing", level: 3, domain: "database" },
+        { name: "Relational Database Design", level: 3, domain: "database" },
+        { name: "Database Management (MySQL)", level: 3, domain: "database" }
+      ]
+    },
+    {
+      id: "ai",
+      label: "AI & Machine Learning",
+      accent: "cyan",
+      skills: [
+        { name: "AI/ML Fundamentals (applied via cloud & personal projects)", level: 3, domain: "ai" },
+        { name: "Applied AI Projects (Plant Disease Detection, Scam Detection)", level: 3, domain: "ai" },
+        { name: "Python for AI & Data Tasks", level: 3, domain: "ai" }
+      ]
+    },
+    {
+      id: "cloud",
+      label: "Cloud Computing",
+      accent: "green",
+      skills: [
+        { name: "AWS Cloud Fundamentals (AWS Certified Cloud Practitioner)", level: 3, domain: "cloud" },
+        { name: "Cloud-based Application Deployment Basics", level: 2, domain: "cloud" }
+      ]
+    },
+    {
+      id: "cybersecurity",
+      label: "Cybersecurity",
+      accent: "cyan",
+      skills: [
+        { name: "Cybersecurity Fundamentals (CompTIA ITF+)", level: 3, domain: "cybersecurity" },
+        { name: "Cloud Security & Compliance Basics (AWS)", level: 2, domain: "cybersecurity" },
+        { name: "Network Security Concepts", level: 3, domain: "cybersecurity" },
+        { name: "System Hardening & Antivirus/Threat Maintenance", level: 3, domain: "cybersecurity" }
+      ]
+    }
+  ]
+};

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('portfolio-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {}
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Jerwin Enrique | Computer Engineering Portfolio</title>
+<meta name="description" content="About Jerwin Enrique: Computer Engineering student at Jose Rizal University with IT support experience and certifications in cloud computing.">
+<link rel="canonical" href="https://jerwinenrique.github.io/portfolio/about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About — Jerwin Enrique">
+<meta property="og:description" content="About Jerwin Enrique: Computer Engineering student at Jose Rizal University with IT support experience and certifications in cloud computing.">
+<meta property="og:url" content="https://jerwinenrique.github.io/portfolio/about.html">
+<meta property="og:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+<meta property="og:site_name" content="Jerwin Enrique — Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Jerwin Enrique">
+<meta name="twitter:description" content="About Jerwin Enrique: Computer Engineering student at Jose Rizal University with IT support experience and certifications in cloud computing.">
+<meta name="twitter:image" content="https://jerwinenrique.github.io/portfolio/social-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-theme.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="portfolio-data.js"></script>
+
+<style>
+/* About page specific styles */
+.about-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.about-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--green);
+  margin: 0 auto 24px;
+  display: block;
+}
+.about-bio {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+.highlight-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-subtle);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+.highlight-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(57,255,140,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.highlight-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--green);
+}
+.highlight-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.highlight-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+</style>
+</head>
+<body>
+<div class="circuit-grid" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <div class="inner">
+    <div class="brand">Jerwin Enrique<span class="caret"></span></div>
+    <ul>
+      <li><a class="nav-link" href="index.html">Home</a></li>
+      <li><a class="nav-link is-active" href="about.html">About</a></li>
+      <li><a class="nav-link" href="projects.html">Projects</a></li>
+      <li><a class="nav-link" href="experience.html">Experience</a></li>
+      <li><a class="nav-link" href="skills-matrix.html">Skills Matrix</a></li>
+      <li><a class="nav-link" href="awards.html">Awards</a></li>
+      <li><a class="nav-link" href="resume.html">Resume</a></li>
+      <li><a class="nav-link" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" type="button">
+        <svg data-lucide="moon" class="icon-moon"></svg>
+        <svg data-lucide="sun" class="icon-sun"></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-shell">
+  <header class="page-hero">
+    <div class="eyebrow">00 // About Me</div>
+    <h1>About Jerwin Enrique</h1>
+    <p class="lede">Computer Engineering student at Jose Rizal University with hands-on IT support experience and a growing foundation in programming and cloud computing.</p>
+  </header>
+
+  <section class="block about-section">
+    <div class="block-heading">
+      <span class="idx">01</span>
+      <h2>Professional Summary</h2>
+      <div class="rule"></div>
+    </div>
+    <img src="profile-photo.jpg" alt="Jerwin Enrique" class="about-photo" width="200" height="200" loading="lazy">
+    <p class="about-bio">
+      I'm a hardworking and motivated Computer Engineering student at Jose Rizal University with hands-on IT support experience and a growing skill set across web development, databases, AI/ML, cloud computing, and robotics/embedded systems (PCB design, Raspberry Pi, Arduino). I'm able to work well in a team, communicate effectively, and adapt quickly in fast-paced environments — and I'm always willing to learn and gain new experience while providing excellent service. I also served as CTO of the AWS Learning Community (AWSLC) JRU chapter (2024–2025), leading technical initiatives and AI/cloud learning sessions for fellow students. My undergraduate thesis is on an IoT-based Balance and Tremor Exercise Board for Parkinson's patients with blood pressure monitoring and an Android application.
+    </p>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg data-lucide="wrench"></svg></div>
+        <div class="highlight-title">IT & Hardware Support</div>
+        <div class="highlight-desc">Hands-on OJT experience installing, configuring, and troubleshooting computer hardware, software, and network connections.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg data-lucide="shield-check"></svg></div>
+        <div class="highlight-title">Preventive Maintenance</div>
+        <div class="highlight-desc">Comfortable with system cleaning, software updates, antivirus scans, and general technical support to keep systems running smoothly.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg data-lucide="code"></svg></div>
+        <div class="highlight-title">Web Dev, Databases & Cloud</div>
+        <div class="highlight-desc">Frontend & backend web development, SQL/database design, and AWS Certified Cloud Practitioner-level cloud computing fundamentals.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg data-lucide="brain-circuit"></svg></div>
+        <div class="highlight-title">AI/ML & Robotics</div>
+        <div class="highlight-desc">Applied AI/ML in personal projects (Cybernate scam detection, plant disease detection); hands-on with PCB circuit design, Raspberry Pi, and Arduino for robotics projects.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><svg data-lucide="users"></svg></div>
+        <div class="highlight-title">Leadership & Communication</div>
+        <div class="highlight-desc">CTO of the AWS Learning Community (JRU) 2024–2025; strong communication and teamwork skills with a hardworking, customer-service mindset.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-social">
+      <a class="social-link" href="https://github.com/JerwinEnrique" target="_blank" rel="noopener" aria-label="GitHub profile"><svg data-lucide="github"></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jerwin-enrique-3150a6376" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg data-lucide="linkedin"></svg></a>
+      <a class="social-link" href="mailto:jerwinenrique14@gmail.com" aria-label="Email Jerwin"><svg data-lucide="mail"></svg></a>
+    </div>
+        <p>Built with semantic HTML · CSS variables · vanilla JavaScript · GitHub Pages ready</p>
+    <p>&copy; <span id="year"></span> Jerwin Enrique. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+safeCreateIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="theme.js"></script>
+<script src="chatbot-widget.js"></script>
+</body>
+</html>
