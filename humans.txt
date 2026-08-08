@@ -1,0 +1,24 @@
+/* TEAM */
+Developer: Jerwin Enrique
+Site: https://jerwinenrique.github.io/Portfolio/
+Location: Metro Manila, Philippines
+Email: jerwinenrique14@gmail.com
+GitHub: https://github.com/JerwinEnrique
+LinkedIn: https://www.linkedin.com/in/jerwin-enrique-3150a6376
+
+/* SITE */
+Last update: 2026/08/01
+Standards: HTML5, CSS3, ECMAScript 2015+
+Components: Vanilla JavaScript, GSAP, Lenis Smooth Scroll, Lucide Icons
+Software: VS Code, Git, GitHub Pages
+Architecture: Static site, no build step, progressive enhancement
+
+/* THANKS */
+Fonts: Inter, Space Grotesk, JetBrains Mono (Google Fonts)
+Icons: Lucide Icons
+Animations: GSAP, ScrollTrigger
+Smooth Scrolling: Lenis
+Inspiration: Modern SaaS design (Vercel, Linear, Stripe, Arc Browser)
+
+Portfolio built to showcase Computer Engineering projects, 
+technical skills, and real-world client work.

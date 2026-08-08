@@ -1,0 +1,368 @@
+// Single source of truth for portfolio content
+// Migrated from assets/js/portfolio-data.js
+
+import { projects } from './projects'
+
+export const personalInfo = {
+  name: 'Jerwin Enrique',
+  title: 'Computer Engineering Student',
+  university: 'Jose Rizal University',
+  graduationYear: 2027,
+  email: 'jerwinenrique14@gmail.com',
+  phone: '0947 738 8439',
+  location: 'Metro Manila, Philippines',
+  github: 'https://github.com/JerwinEnrique',
+  linkedin: 'https://www.linkedin.com/in/jerwin-enrique-3150a6376',
+  resumePdf: '/Portfolio/assets/docs/resume.pdf',
+  profileImage: '/Portfolio/assets/img/profile-photo.jpg',
+};
+
+export const summary = {
+  short: 'Hardworking and motivated Computer Engineering student with hands-on IT support experience and a growing foundation across web development, mobile app development, databases, AI/ML, cloud computing, and robotics/embedded systems.',
+  full: `I'm a hardworking and motivated Computer Engineering student at Jose Rizal University with hands-on IT support experience and a growing skill set across web development, mobile app development (Flutter/Android Studio), databases, AI/ML, cloud computing, and robotics/embedded systems (PCB design, Raspberry Pi, Arduino). I'm able to work well in a team, communicate effectively, and adapt quickly in fast-paced environments — and I'm always willing to learn and gain new experience while providing excellent service.`,
+};
+
+export const timeline = [
+  {
+    id: 'exp-06',
+    type: 'leadership',
+    dateStart: '2023',
+    dateEnd: '2026',
+    role: 'Director of Sports',
+    org: 'Institute of Computer Engineers of the Philippines (ICpEP) — Student Chapter',
+    location: 'Jose Rizal University',
+    summary: 'Elected Director of Sports for two consecutive terms (2023–2026), organizing and leading sports and team-building programs for the ICpEP student chapter — building teamwork, leadership, communication, and adaptability alongside my technical coursework.',
+    achievements: [
+      'Re-elected for a 2nd consecutive term, reflecting consistent leadership and reliability within the organization',
+      'Planned and led sports events and team-building activities for chapter members',
+      'Coordinated with fellow officers and members across two full terms, strengthening teamwork and communication skills',
+      'Adapted event plans and logistics on the fly to fit changing schedules, venues, and member availability',
+    ],
+    tags: ['Leadership', 'Teamwork', 'Communication', 'Adaptability', 'Event Organizing', 'Student Organization'],
+  },
+  {
+    id: 'exp-05',
+    type: 'work',
+    dateStart: '2025',
+    dateEnd: '2025',
+    role: 'Customer Service Representative (CSR)',
+    org: 'Teleperformance',
+    location: 'On-site',
+    summary: 'Worked for about a month as a Customer Service Representative at Teleperformance, handling customer interactions and support requests in a fast-paced call center environment.',
+    achievements: [
+      'Handled customer interactions and support requests professionally under time pressure',
+      'Practiced clear verbal communication and active listening in a live customer-facing role',
+      'Gained first-hand experience with corporate workflows, performance metrics, and customer service standards',
+    ],
+    tags: ['Customer Service', 'Communication', 'Problem Solving', 'Professionalism'],
+  },
+  {
+    id: 'exp-04',
+    type: 'leadership',
+    dateStart: '2024',
+    dateEnd: '2025',
+    role: 'Chief Technology Officer (CTO)',
+    org: 'AWS Learning Community (AWSLC) — Jose Rizal University Chapter',
+    location: 'Jose Rizal University',
+    summary: 'Served as CTO of the AWS Learning Community JRU chapter, leading the technical direction of the org and organizing cloud and AI learning sessions for fellow students.',
+    achievements: [
+      'Led the technical direction and project initiatives of the AWS Learning Community JRU chapter',
+      'Organized and facilitated cloud computing and AI learning sessions / workshops for members',
+      'Coordinated with fellow student officers to plan tech events and skill-building activities',
+      'Represented the organization\'s technical arm in planning AWS-related learning programs',
+    ],
+    tags: ['Leadership', 'AWS', 'Cloud Computing', 'Student Organization', 'Technical Mentorship'],
+  },
+  {
+    id: 'exp-03',
+    type: 'education',
+    dateStart: '2019',
+    dateEnd: '2023',
+    role: 'ICT - Computer System Servicing',
+    org: 'Fort Bonifacio High School',
+    location: 'On campus',
+    summary: 'Senior High School graduate in Computer System Servicing track, graduated as an Honor Student.',
+    achievements: [
+      'Graduated as an Honor Student',
+      'Completed hands-on training in computer hardware and software troubleshooting',
+      'Gained practical experience in network configuration and preventive maintenance',
+      'Developed foundational technical skills for computer systems servicing',
+    ],
+    tags: ['Honor Student', 'Computer Hardware', 'Software Troubleshooting', 'Network Configuration', 'Preventive Maintenance'],
+  },
+  {
+    id: 'exp-02',
+    type: 'internship',
+    dateStart: 'Nov 2022',
+    dateEnd: 'Jan 2023',
+    role: 'OJT – IT (Computer Systems Servicing Student)',
+    org: 'Jose Rizal University',
+    location: 'On campus',
+    summary: 'Assisted in installing, configuring, and troubleshooting computer hardware, software, and network connections. Performed preventive maintenance including system cleaning, software updates, and antivirus scans. Provided technical support for computer-related issues, ensuring minimal downtime and improved system performance.',
+    achievements: [
+      'Assisted in installing, configuring, and troubleshooting computer hardware, software, and network connections',
+      'Performed preventive maintenance including system cleaning, software updates, and antivirus scans',
+      'Provided technical support for computer-related issues, ensuring minimal downtime and improved system performance',
+    ],
+    tags: ['Hardware Troubleshooting', 'Software Installation', 'Network Configuration', 'Preventive Maintenance', 'Technical Support'],
+  },
+  {
+    id: 'exp-01',
+    type: 'education',
+    dateStart: 'Jan 2023',
+    dateEnd: 'May 2027',
+    role: 'Bachelor of Science in Computer Engineering',
+    org: 'Jose Rizal University',
+    location: 'On campus',
+    summary: 'Major in Computer Engineering. Thesis on "IoT-based Balance and Tremor Exercise Board for Parkinson\'s with Blood Pressure Monitoring and Android Application". Ranked Top 9, Top 8, and Top 8 in Academic Excellence Awards across 1st, 2nd, and 3rd year respectively.',
+    achievements: [
+      'Currently pursuing Bachelor of Science in Computer Engineering',
+      'Thesis focuses on IoT-based solution for Parkinson\'s disease patients',
+      'Top 9 — Academic Excellence Award, 1st Year BSCpE',
+      'Top 8 — Academic Excellence Award, 2nd Year BSCpE',
+      'Top 8 — Academic Excellence Award, 3rd Year BSCpE',
+      'Relevant coursework in computer engineering fundamentals, systems programming, and embedded systems',
+    ],
+    tags: ['Computer Engineering', 'IoT', 'Android Development', 'Healthcare Technology', 'Academic Excellence'],
+  },
+];
+
+export const certifications = [
+  {
+    id: 'cert-01',
+    title: 'CompTIA IT Fundamentals+ (ITF+)',
+    issuer: 'CompTIA',
+    date: 'May 2024',
+    credentialId: 'ITFPLUS-MAY2024-001',
+    verifyUrl: null,
+    icon: 'cpu',
+    whatItMeans: 'Entry-level IT certification validating core knowledge of computer hardware, software, networking basics, security concepts, and troubleshooting — the standard on-ramp before role-based IT certifications.',
+  },
+  {
+    id: 'cert-02',
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: 'Dec 2025',
+    credentialId: 'AWSCCP-DEC2025-002',
+    verifyUrl: null,
+    icon: 'cloud',
+    whatItMeans: 'Foundational AWS certification validating overall understanding of the AWS Cloud, including core services, deployment models, security/compliance basics, and billing & pricing.',
+  },
+  {
+    id: 'cert-04',
+    title: 'Wadhwani Entrepreneurship',
+    issuer: 'Wadhwani Foundation',
+    date: 'May 2026',
+    credentialId: 'WADE-ENTREP-MAY2026-003',
+    verifyUrl: null,
+    icon: 'brain',
+    whatItMeans: 'Covers foundational entrepreneurship concepts — opportunity recognition, business model basics, and early-stage startup thinking.',
+  },
+  {
+    id: 'cert-05',
+    title: 'Wadhwani Skilling — Job Ready: Employability Skills',
+    issuer: 'Wadhwani Foundation',
+    date: 'May 2026',
+    credentialId: 'WADE-SKILL-MAY2026-004',
+    verifyUrl: null,
+    icon: 'list',
+    whatItMeans: 'Workplace-readiness training covering communication, professionalism, resume-building, and interview preparation for entry-level roles.',
+  },
+  {
+    id: 'cert-06',
+    title: 'Huawei ICT Academy — Overview of AI',
+    issuer: 'Huawei ICT Academy',
+    date: null,
+    credentialId: null,
+    verifyUrl: null,
+    icon: 'brain',
+    whatItMeans: 'Foundational course covering AI concepts and terminology, machine learning basics, and an overview of Huawei\'s AI platforms and cloud AI services.',
+  },
+];
+
+export const awards = [
+  {
+    id: 'award-01',
+    title: '2nd Place – Sumobot Competition',
+    organizer: 'Institute of Computer Engineers of the Philippines (ICpEP)',
+    date: '2023',
+    description: 'Achieved second place in the Sumobot competition, showcasing skills in autonomous robot design, sensor integration, and strategic programming.',
+    icon: 'cpu',
+  },
+  {
+    id: 'award-02',
+    title: '2nd Place – Line Follower Robot Competition',
+    organizer: 'Institute of Computer Engineers of the Philippines (ICpEP)',
+    date: '2022',
+    description: 'Secured second place in the Line Follower Robot competition, demonstrating expertise in line sensing algorithms, PID control, and mechanical design.',
+    icon: 'route',
+  },
+  {
+    id: 'award-03',
+    title: 'Top 9 – Academic Excellence Award (1st Year, BSCpE)',
+    organizer: 'Jose Rizal University – College of Engineering',
+    date: '2023',
+    description: 'Ranked Top 9 among 1st year Bachelor of Science in Computer Engineering students for overall academic performance.',
+    icon: 'award',
+  },
+  {
+    id: 'award-04',
+    title: 'Top 8 – Academic Excellence Award (2nd Year, BSCpE)',
+    organizer: 'Jose Rizal University – College of Engineering',
+    date: '2024',
+    description: 'Ranked Top 8 among 2nd year Bachelor of Science in Computer Engineering students for overall academic performance.',
+    icon: 'award',
+  },
+  {
+    id: 'award-05',
+    title: 'Top 8 – Academic Excellence Award (3rd Year, BSCpE)',
+    organizer: 'Jose Rizal University – College of Engineering',
+    date: '2025',
+    description: 'Ranked Top 8 among 3rd year Bachelor of Science in Computer Engineering students for overall academic performance.',
+    icon: 'award',
+  },
+  {
+    id: 'award-06',
+    title: 'Honor Student – Senior High School',
+    organizer: 'Fort Bonifacio High School',
+    date: '2023',
+    description: 'Graduated as an Honor Student in Senior High School under the Computer System Servicing (ICT) track.',
+    icon: 'graduation-cap',
+  },
+];
+
+export const skillCategories = [
+  {
+    id: 'hardware',
+    label: 'IT & Hardware Support',
+    accent: 'green',
+    skills: [
+      { name: 'Computer Hardware & Software Troubleshooting', level: 4, domain: 'hardware' },
+      { name: 'Operating System Installation', level: 4, domain: 'hardware' },
+      { name: 'Network Configuration', level: 4, domain: 'hardware' },
+      { name: 'Preventive Maintenance', level: 4, domain: 'hardware' },
+      { name: 'Microsoft Office', level: 3, domain: 'hardware' },
+    ],
+  },
+  {
+    id: 'robotics',
+    label: 'Robotics, PCB & Embedded Systems',
+    accent: 'cyan',
+    skills: [
+      { name: 'PCB Circuit Design & Schematic Layout', level: 3, domain: 'robotics' },
+      { name: 'Raspberry Pi Programming & GPIO Interfacing', level: 3, domain: 'robotics' },
+      { name: 'Arduino Programming & Microcontrollers', level: 4, domain: 'robotics' },
+      { name: 'Sensor Integration & Robot Control (Sumobot / Line Follower)', level: 4, domain: 'robotics' },
+      { name: 'Embedded Systems Prototyping', level: 3, domain: 'robotics' },
+    ],
+  },
+  {
+    id: 'programming',
+    label: 'Programming Languages',
+    accent: 'green',
+    skills: [
+      { name: 'Java', level: 3, domain: 'programming' },
+      { name: 'C Programming', level: 3, domain: 'programming' },
+      { name: 'Python Programming', level: 3, domain: 'programming' },
+      { name: 'JavaScript', level: 3, domain: 'programming' },
+      { name: 'PHP', level: 2, domain: 'programming' },
+      { name: 'HTML', level: 3, domain: 'programming' },
+      { name: 'CSS', level: 3, domain: 'programming' },
+      { name: 'SQL', level: 3, domain: 'programming' },
+      { name: 'Assembly Language', level: 2, domain: 'programming' },
+      { name: 'Verilog (HDL / Digital Logic Design)', level: 2, domain: 'programming' },
+    ],
+  },
+  {
+    id: 'webdev',
+    label: 'Web Development (Frontend & Backend)',
+    accent: 'cyan',
+    skills: [
+      { name: 'Frontend Development (HTML, CSS, JavaScript, Responsive UI)', level: 3, domain: 'webdev' },
+      { name: 'Backend & Server-side Logic (PHP)', level: 2, domain: 'webdev' },
+      { name: 'Database-driven Web Applications', level: 3, domain: 'webdev' },
+      { name: 'Version Control (Git / GitHub)', level: 3, domain: 'webdev' },
+    ],
+  },
+  {
+    id: 'mobile',
+    label: 'Mobile App Development',
+    accent: 'green',
+    skills: [
+      { name: 'Android Studio', level: 3, domain: 'mobile' },
+      { name: 'Flutter & Dart', level: 3, domain: 'mobile' },
+      { name: 'Mobile UI/UX Design', level: 3, domain: 'mobile' },
+      { name: 'IoT-to-Mobile Data Sync (Cybernate, IoT Balance Board apps)', level: 3, domain: 'mobile' },
+    ],
+  },
+  {
+    id: 'database',
+    label: 'Database & SQL',
+    accent: 'green',
+    skills: [
+      { name: 'SQL Query Writing', level: 3, domain: 'database' },
+      { name: 'Relational Database Design', level: 3, domain: 'database' },
+      { name: 'Database Management (MySQL)', level: 3, domain: 'database' },
+    ],
+  },
+  {
+    id: 'ai',
+    label: 'AI & Machine Learning',
+    accent: 'cyan',
+    skills: [
+      { name: 'AI/ML Fundamentals (applied via cloud & personal projects)', level: 3, domain: 'ai' },
+      { name: 'Applied AI Projects (Plant Disease Detection, Scam Detection, Drowsiness Detection)', level: 3, domain: 'ai' },
+      { name: 'Computer Vision (OpenCV, facial landmark detection)', level: 2, domain: 'ai' },
+      { name: 'Python for AI & Data Tasks', level: 3, domain: 'ai' },
+    ],
+  },
+  {
+    id: 'cloud',
+    label: 'Cloud Computing',
+    accent: 'green',
+    skills: [
+      { name: 'AWS Cloud Fundamentals (AWS Certified Cloud Practitioner)', level: 3, domain: 'cloud' },
+      { name: 'Cloud-based Application Deployment Basics', level: 2, domain: 'cloud' },
+    ],
+  },
+  {
+    id: 'cybersecurity',
+    label: 'Cybersecurity',
+    accent: 'cyan',
+    skills: [
+      { name: 'Cybersecurity Fundamentals (CompTIA ITF+)', level: 3, domain: 'cybersecurity' },
+      { name: 'Cloud Security & Compliance Basics (AWS)', level: 2, domain: 'cybersecurity' },
+      { name: 'Network Security Concepts', level: 3, domain: 'cybersecurity' },
+      { name: 'System Hardening & Antivirus/Threat Maintenance', level: 3, domain: 'cybersecurity' },
+    ],
+  },
+];
+
+export const currentlyLearning = [
+  'Advanced AWS Services (EC2, S3, Lambda)',
+  'React & Modern JavaScript Frameworks',
+  'Docker & Container Orchestration',
+  'Advanced Embedded Systems Design',
+  'Machine Learning Model Deployment',
+  'Cybersecurity Best Practices',
+];
+
+export const certificationsInProgress = [
+  {
+    title: 'AWS Certified Solutions Architect – Associate',
+    expectedDate: '2026',
+    description: 'Deepening AWS knowledge with solutions architecture fundamentals',
+  },
+  {
+    title: 'CompTIA A+',
+    expectedDate: '2026',
+    description: 'Building on ITF+ with comprehensive hardware/software support certification',
+  },
+];
+
+export const stats = {
+  certifications: certifications.length,
+  projects: projects.length,
+  graduationYear: 2027,
+  skills: skillCategories.reduce((sum, cat) => sum + cat.skills.length, 0),
+};
